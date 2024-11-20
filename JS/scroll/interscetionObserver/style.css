@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#page {
+    position: absolute;
+    width: 100%;
+    background-color: aqua;
+}
+
+#logo {
+    display: block;
+    z-index: 999;
+    transition: left 1s, width 1s, transform 1s ease-out;
+
+}
+
+#logo img {
+    width: 100%;
+}
+
+.right {
+    position: absolute;
+    top: calc(420px - 124px / 2);
+    left: calc(50% - min(40vw, 360px));
+    width: 124px;
+    transform: rotate(0deg);
+}
+
+.left {
+    position: fixed;
+    top: 0;
+    left: 3vw;
+    width: 62px;
+    transform: rotate(720deg);
+}
+
+@keyframes spin {
+    
+}
+
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 420px;
+    background-color: plum;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    font-size: 48px;
+}
+
+#content {
+    position: relative;
+    top: 420px;
+    padding: 10vh 10vw;
+    background-color: beige;
+    /* border: 2px solid blue; */
+}
