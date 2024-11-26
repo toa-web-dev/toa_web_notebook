@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            #container_top {
+                display: flex;
+                width: 100vw;
+                height: 80vh;
+                border: 4px solid red;
+                box-sizing: border-box;
+            }
+            #section_video {
+                width: 80%;
+                height: 100%;
+                background-color: gray;
+            }
+            #section_chat {
+                width: 20%;
+                height: 100%;
+                background-color: plum;
+            }
+            #section_chat > div:first-child {
+                height: 95%;
+                padding: 0 12px;
+                background-color: gainsboro;
+            }
+            #section_chat > div:last-child {
+                display: flex;
+                justify-content: space-around;
+            }
+            #section_chat > div:last-child input {
+                /* display: block; */
+                width: 70%;
+                height: 100%;
+            }
+            #chat_log {
+                overflow-x: hidden;
+            }
+            .chat_bubble {
+                margin: 12px 0;
+                border: 1px solid black;
+                background-color: aliceblue;
+                width: 100%;
+                border-radius: 10px;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="module" src="app.js"></script>
+        <div id="container_top">
+            <section id="section_video">비디오 스트리밍</section>
+            <!-- 채팅 section asid로 변경하기 -->
+            <section id="section_chat">
+                <div id="chat_log">채팅로그</div>
+                <div>
+                        <!-- input -> textarea로 변경하기 -->
+                        <input id="chat_input" type="text" /> <button type="button" class="btn_enter">입력</button>
+                </div>
+            </section>
+        </div>
+        <div id="container_under">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quibusdam iusto dolorem, vel nisi
+            reiciendis rem id sapiente corrupti pariatur nostrum quos, quae illo magni soluta nam eum repellat in?
+        </div>
+    </body>
+</html>
