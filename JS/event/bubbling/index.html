@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>버블링</title>
+        <style>
+            :root {
+                --box--max--size: 15rem;
+                --box--gap: 2.5rem;
+            }
+            body {
+                font-size: 20px;
+            }
+            code {
+                color: coral;
+                background-color: gainsboro;
+                border-radius: 0.5rem;
+                padding: 0 0.5rem;
+                font-family: sans-serif;
+            }
+
+            #cb_stop_bubble {
+                width: 20px;
+                height: 20px;
+            }
+
+            section div:not(.box) {
+                margin-top: 1rem;
+            }
+
+            .box_container {
+                width: calc(var(--box--max--size));
+                height: calc(var(--box--max--size));
+                border: 4px dashed gray;
+            }
+
+            .box {
+                position: relative;
+                transition: width 0.2s, height 0.2s;
+            }
+
+            .box::after {
+                content: "↘";
+                font-size: 2.2rem;
+                font-weight: bold;
+                color: white;
+                text-shadow: -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black, 1px 1px 0px black;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+            /* 웹킷 기반 브라우저에서만 -webkit-text-stroke 적용 */
+            @supports (-webkit-text-stroke: 1px black) {
+                .box::after {
+                    -webkit-text-stroke: 1px black; /* 웹킷 기반 브라우저에서만 적용 */
+                    text-shadow: none; /* text-shadow 제거 */
+                }
+            }
+
+            .box1 {
+                width: calc(var(--box--max--size) - var(--box--gap));
+                height: calc(var(--box--max--size) - var(--box--gap));
+                background-color: blue;
+            }
+            .box2 {
+                width: calc(var(--box--max--size) - var(--box--gap) * 2);
+                height: calc(var(--box--max--size) - var(--box--gap) * 2);
+                background-color: yellowgreen;
+            }
+            .box3 {
+                width: calc(var(--box--max--size) - var(--box--gap) * 3);
+                height: calc(var(--box--max--size) - var(--box--gap) * 3);
+                background-color: red;
+            }
+
+            .log {
+                width: var(--box--max--size);
+                height: 100px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="module" src="app.js"></script>
+        <h1>이벤트 버블링의 경우</h1>
+        <p style="white-space: pre-line">부모요소: 파란색 자식요소: 녹색 후손요소: 빨간색</p>
+        <article>
+            <section id="bubble">
+                <div>
+                    <label for="stop"><code>event.stopPropagation</code> 적용하기</label
+                    ><input type="checkbox" id="cb_stop_bubble" />
+                    <button type="button" class="btn_init_box">박스 크기 초기화하기</button>
+                </div>
+                <div class="box_container">
+                    <div class="box box1">
+                        <div class="box box2">
+                            <div class="box box3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="log"></div>
+            </section>
+            <!-- <section id="caputure">
+                <div></div>
+                <div></div>
+            </section> -->
+        </article>
+    </body>
+</html>
